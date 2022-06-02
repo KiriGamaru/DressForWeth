@@ -1,5 +1,8 @@
 package com.example.dressforweth.data;
 
+import com.example.dressforweth.Clothes;
+import com.example.dressforweth.R;
+
 import java.util.ArrayList;
 
 public class ClothesList {
@@ -8,13 +11,10 @@ public class ClothesList {
     private final ArrayList<Clothes> clothesList = new ArrayList<>();
 
     public ClothesList(){
-        clothesList.add(new Clothes("футблока","это футболка","futbolka.jpg"));
-        clothesList.add(new Clothes("куртка","это куртка","kurtka.jpg"));
-        clothesList.add(new Clothes("кеды","это кеды","ked.jpg"));
+        clothesList.add(new Clothes( R.drawable.futbolka, "футблока","это футболка"));
+        clothesList.add(new Clothes(R.drawable.kurtka,"куртка","это куртка"));
+        clothesList.add(new Clothes(R.drawable.ked,"кеды","это кеды"));
     }
-
-
-
 
     public static ClothesList getInstance()
     {

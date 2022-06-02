@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -26,6 +25,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 //база данных
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btnSettings;
     private Switch swGender;
     private ListView list_of_clothes;
-    private ImageView ivClothes;
     private Button btnNotes;
 
 //погода
@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
     public String rain;
     public double wind;
 
-
+    //create data
+    ArrayList<Clothes> clothesList = new ArrayList<>();
+    MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +57,12 @@ public class MainActivity extends AppCompatActivity {
         myDBManager = new MyDBManager(this);
         tvWeather = findViewById(R.id.tvWeather);
         edCity = findViewById(R.id.edCity);
-        swGender = findViewById(R.id.swGender);
         btnSettings = findViewById(R.id.btnSettings);
+
+        swGender = findViewById(R.id.swGender);
         list_of_clothes = findViewById(R.id.list_of_clothes);
+
+        myAdapter = new MyAdapter(this, R.layout.list_item, clothesList);
 
         btnNotes = findViewById(R.id.btnNotes);
 
@@ -137,6 +142,14 @@ public class MainActivity extends AppCompatActivity {
                 tvWeather.setText("Сейчас на улице: " + temp +" ℃ \n" +
                          rain + "\n" +
                         "ветер " + wind + " м/с");
+
+
+                clothesList.add(new Clothes(R.drawable.futbolka, "футблока","это футболка"));
+                clothesList.add(new Clothes(R.drawable.kurtka,"куртка","это куртка"));
+                clothesList.add(new Clothes(R.drawable.ked,"кеды","это кеды"));
+
+                list_of_clothes.setAdapter(myAdapter);
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

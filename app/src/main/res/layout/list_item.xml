@@ -14,27 +14,27 @@
         android:layout_marginEnd="16dp"
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivClothes"
+        app:layout_constraintStart_toEndOf="@+id/imgClothes"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvDisc"
+        android:id="@+id/tvDesc"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Description"
-        app:layout_constraintBottom_toBottomOf="@+id/ivClothes"
+        app:layout_constraintBottom_toBottomOf="@+id/imgClothes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivClothes"
+        app:layout_constraintStart_toEndOf="@+id/imgClothes"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <ImageView
-        android:id="@+id/ivClothes"
+        android:id="@+id/imgClothes"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
