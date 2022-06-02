@@ -9,42 +9,43 @@
 
     <Switch
         android:id="@+id/swGender"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:minWidth="48dp"
         android:minHeight="32dp"
-        android:text="M/F"
-        app:layout_constraintBottom_toBottomOf="@+id/edCity"
+        android:showText="true"
+        android:text="    пол"
+        android:textOff="М"
+        android:textOn="Ж"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWeather"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edCity" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSettings" />
 
     <EditText
         android:id="@+id/edCity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Irkutsk"
-        app:layout_constraintEnd_toStartOf="@+id/swGender"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSettings"
+        app:layout_constraintEnd_toStartOf="@+id/btnSettings"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/btnSettings" />
 
     <Button
         android:id="@+id/btnSettings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Сохранить изменения"
+        android:text="Именить город"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edCity" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvWeather"
@@ -52,10 +53,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/swGender"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSettings" />
+        app:layout_constraintTop_toBottomOf="@+id/edCity" />
 
     <ListView
         android:id="@+id/list_of_clothes"
