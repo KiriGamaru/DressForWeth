@@ -3,6 +3,7 @@ package com.example.dressforweth;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +14,6 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.dressforweth.DB.MyDBManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,8 +29,8 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
-//база данных
-    private MyDBManager myDBManager;
+
+
 
 //интерфэйс
     private TextView tvWeather;
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     public void lookClothesM(double t, String r, double w){
         clothesList.clear();
         //жара
-        if (t > 20 & r == "Солнечно" & w < 7) {
+        if (t > 20 & r.equals("Солнечно") & w < 7) {
             clothesList.add(hat);
             clothesList.add(maika);
             clothesList.add(shorts);
@@ -88,14 +87,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //жарковато
-        if (t > 20 & r != "Солнечно" & r != "Дождь"& w < 7){
+        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
             clothesList.add(futbolka);
             clothesList.add(pants);
             clothesList.add(kros);
         }
 
+        //жарковато, но ветер
+        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w > 7){
+            clothesList.add(futbolka);
+            clothesList.add(vetrovka);
+            clothesList.add(pants);
+            clothesList.add(kros);
+        }
+
+
         //дождь и жарковато
-        if (t > 20 & r != "Солнечно" & r != "Дождь"& w < 7){
+        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
             clothesList.add(rubashka);
             clothesList.add(pants);
@@ -104,14 +112,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         //тёпленько
-        if(t >= 10 & t <= 20 & r != "Дождь"& w < 7){
+        if(t >= 10 & t <= 20 & !r.equals("Дождь") & w < 7){
             clothesList.add(kofta);
             clothesList.add(pants);
             clothesList.add(kros);
         }
 
         //дождь и тёпленько
-        if(t >= 10 & t <= 20 & r == "Дождь"& w < 7){
+        if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
             clothesList.add(kofta);
             clothesList.add(pants);
@@ -119,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //тёпленько, но ветер
-        if(t >= 10 & t <= 20 & r == "Дождь"& w < 7){
+        if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
             clothesList.add(kofta);
             clothesList.add(vetrovka);
@@ -154,21 +162,29 @@ public class MainActivity extends AppCompatActivity {
         clothesList.clear();
 
         //жара
-        if (t > 20 & r == "Солнечно" & w < 7) {
+        if (t > 20 & r.equals("Солнечно") & w < 7) {
             clothesList.add(girlHat);
             clothesList.add(platie);
             clothesList.add(sandals);
         }
 
         //жарковато
-        if (t > 20 & r != "Солнечно" & r != "Дождь"& w < 7){
+        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
             clothesList.add(girlMaika);
             clothesList.add(yubka);
             clothesList.add(kros);
         }
 
+        //жарковато, но ветер
+        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w > 7){
+            clothesList.add(girlFutbolka);
+            clothesList.add(vetrovka);
+            clothesList.add(pants);
+            clothesList.add(kros);
+        }
+
         //дождь и жарковато
-        if (t > 20 & r != "Солнечно" & r != "Дождь"& w < 7){
+        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
             clothesList.add(girlFutbolka);
             clothesList.add(pants);
@@ -177,14 +193,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         //тёпленько
-        if(t >= 10 & t <= 20 & r != "Дождь"& w < 7){
+        if(t >= 10 & t <= 20 & !r.equals("Дождь") & w < 7){
             clothesList.add(kofta);
             clothesList.add(pants);
             clothesList.add(kros);
         }
 
         //дождь и тёпленько
-        if(t >= 10 & t <= 20 & r == "Дождь"& w < 7){
+        if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
             clothesList.add(kofta);
             clothesList.add(pants);
@@ -192,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //тёпленько, но ветер
-        if(t >= 10 & t <= 20 & r == "Дождь"& w > 7){
+        if(t >= 10 & t <= 20 & r.equals("Дождь") & w > 7){
             clothesList.add(zontik);
             clothesList.add(kofta);
             clothesList.add(vetrovka);
@@ -229,9 +245,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        myDBManager = new MyDBManager(this);
+
         tvWeather = findViewById(R.id.tvWeather);
-        edCity = findViewById(R.id.edCity);
+        edCity = findViewById(R.id.edZametka);
         btnSettings = findViewById(R.id.btnSettings);
 
         swGender = findViewById(R.id.swGender);
@@ -272,7 +288,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    public void onClickZametki(View view) {
+        Intent i = new Intent(MainActivity.this, ZametkiActivity.class);
+        startActivity(i);
+    }
 
 
     private class GetURLData extends AsyncTask<String, String, String> {
@@ -343,22 +362,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        myDBManager.openDb();
-        for (String title : myDBManager.getFromDb()){
 
-        }
+
     }
 
 
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        myDBManager.closeDb();
-    }
 }

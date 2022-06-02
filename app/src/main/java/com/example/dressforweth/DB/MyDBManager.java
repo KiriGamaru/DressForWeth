@@ -43,4 +43,7 @@ public class MyDBManager {
     public void closeDb(){
         myDBHelper.close();
     }
+
+    public void insertToDb(String toString) {
+    }
 }
