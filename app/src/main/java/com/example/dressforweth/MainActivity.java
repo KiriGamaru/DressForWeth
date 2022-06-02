@@ -49,6 +49,29 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Clothes> clothesList = new ArrayList<>();
     MyAdapter myAdapter;
 
+    Clothes futbolka = new Clothes(R.drawable.futbolka, "футблока","это футболка");
+    Clothes girlFutbolka = new Clothes(R.drawable.girlfutbolka, "футблока","это футболка");
+    Clothes girlHat = new Clothes(R.drawable.girlhat,"головной убор","защитит от солнца");
+    Clothes girlMaika = new Clothes(R.drawable.girlmaika,"майка","это майка");
+    Clothes hat = new Clothes(R.drawable.hat,"головной убор","защитит от солнца");
+    Clothes ked = new Clothes(R.drawable.ked,"кеды","это кеды");
+    Clothes kofta = new Clothes(R.drawable.kofta,"кофта","это кофта");
+    Clothes kros = new Clothes(R.drawable.kros,"кросовки","это кросовки");
+    Clothes kurtka = new Clothes(R.drawable.kurtka,"куртка","это куртка");
+    Clothes maika = new Clothes(R.drawable.maika,"майка","это майка");
+    Clothes pants = new Clothes(R.drawable.pants,"штаны","это штаны");
+    Clothes platie = new Clothes(R.drawable.platie,"платье","это платье");
+    Clothes puhovik = new Clothes(R.drawable.puhovik,"пуховик","это пуховик");
+    Clothes rubashka = new Clothes(R.drawable.rubashka,"рубашка","это рубашка");
+    Clothes sandals = new Clothes(R.drawable.sandals,"сандали","носить только с носками");
+    Clothes shapka = new Clothes(R.drawable.shapka,"шапка","чтоб голова не мёрзла");
+    Clothes shorts = new Clothes(R.drawable.shorts,"шорты","это шорты");
+    Clothes vetovka = new Clothes(R.drawable.vetrovka,"ветровка","защищает от ветра");
+    Clothes yubka = new Clothes(R.drawable.yubka,"юбка","это юбка");
+    Clothes zontik = new Clothes(R.drawable.zontik,"зонтик","это зонтик");
+
+//______________________________________________________________________________________________________
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,9 +167,10 @@ public class MainActivity extends AppCompatActivity {
                         "ветер " + wind + " м/с");
 
 
-                clothesList.add(new Clothes(R.drawable.futbolka, "футблока","это футболка"));
-                clothesList.add(new Clothes(R.drawable.kurtka,"куртка","это куртка"));
-                clothesList.add(new Clothes(R.drawable.ked,"кеды","это кеды"));
+                clothesList.add(hat);
+                clothesList.add(futbolka);
+                clothesList.add(shorts);
+                clothesList.add(kros);
 
                 list_of_clothes.setAdapter(myAdapter);
 
