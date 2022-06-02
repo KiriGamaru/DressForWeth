@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,14 +30,15 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 //база данных
     private MyDBManager myDBManager;
-    //private EditText edTitle, edDisc;
+
 //интерфэйс
     private TextView tvWeather;
     private EditText edCity;
     private Button btnSettings;
     private Switch swGender;
-
+    private ListView list_of_clothes;
     private ImageView ivClothes;
+    private Button btnNotes;
 
 //погода
     public double temp;
@@ -55,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         edCity = findViewById(R.id.edCity);
         swGender = findViewById(R.id.swGender);
         btnSettings = findViewById(R.id.btnSettings);
+        list_of_clothes = findViewById(R.id.list_of_clothes);
+
+        btnNotes = findViewById(R.id.btnNotes);
 
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
@@ -143,11 +148,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         myDBManager.openDb();
-//        for (String title : myDBManager.getFromDb()){
-//            tvTest.append(title);
-//            tvTest.append("\n");
-//        }
+        for (String title : myDBManager.getFromDb()){
+
+        }
     }
+
 
 
     @Override
