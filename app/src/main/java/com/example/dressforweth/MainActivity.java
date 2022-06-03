@@ -52,192 +52,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Clothes> clothesList = new ArrayList<>();
     MyAdapter myAdapter;
 
-    Clothes botinki = new Clothes(R.drawable.bot, "ботинки","в них ногам точно будет тепло");
-    Clothes futbolka = new Clothes(R.drawable.futbolka, "футблока","это футболка");
-    Clothes girlFutbolka = new Clothes(R.drawable.girlfutbolka, "футблока","это футболка");
-    Clothes girlHat = new Clothes(R.drawable.girlhat,"головной убор","защитит от солнца");
-    Clothes girlMaika = new Clothes(R.drawable.girlmaika,"майка","это майка");
-    Clothes hat = new Clothes(R.drawable.hat,"головной убор","защитит от солнца");
-    Clothes ked = new Clothes(R.drawable.ked,"кеды","это кеды");
-    Clothes kofta = new Clothes(R.drawable.kofta,"кофта","это кофта");
-    Clothes kros = new Clothes(R.drawable.kros,"кросовки","это кросовки");
-    Clothes kurtka = new Clothes(R.drawable.kurtka,"куртка","это куртка");
-    Clothes maika = new Clothes(R.drawable.maika,"майка","это майка");
-    Clothes pants = new Clothes(R.drawable.pants,"штаны","это штаны");
-    Clothes platie = new Clothes(R.drawable.platie,"платье","это платье");
-    Clothes puhovik = new Clothes(R.drawable.puhovik,"пуховик","это пуховик");
-    Clothes rubashka = new Clothes(R.drawable.rubashka,"рубашка","это рубашка");
-    Clothes sandals = new Clothes(R.drawable.sandals,"сандали","носить только с носками");
-    Clothes shapka = new Clothes(R.drawable.shapka,"шапка","чтоб голова не мёрзла");
-    Clothes shorts = new Clothes(R.drawable.shorts,"шорты","это шорты");
-    Clothes vetrovka = new Clothes(R.drawable.vetrovka,"ветровка","защищает от ветра");
-    Clothes yubka = new Clothes(R.drawable.yubka,"юбка","это юбка");
-    Clothes zontik = new Clothes(R.drawable.zontik,"зонтик","это зонтик");
 
 //______________________________________________________________________________________________________
-
-    public void lookClothesM(double t, String r, double w){
-        clothesList.clear();
-        //жара
-        if (t > 20 & r.equals("Солнечно") & w < 7) {
-            clothesList.add(hat);
-            clothesList.add(maika);
-            clothesList.add(shorts);
-            clothesList.add(sandals);
-        }
-
-        //жарковато
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
-            clothesList.add(futbolka);
-            clothesList.add(pants);
-            clothesList.add(kros);
-        }
-
-        //жарковато, но ветер
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w > 7){
-            clothesList.add(futbolka);
-            clothesList.add(vetrovka);
-            clothesList.add(pants);
-            clothesList.add(kros);
-        }
-
-
-        //дождь и жарковато
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
-            clothesList.add(zontik);
-            clothesList.add(rubashka);
-            clothesList.add(pants);
-            clothesList.add(kros);
-        }
-
-
-        //тёпленько
-        if(t >= 10 & t <= 20 & !r.equals("Дождь") & w < 7){
-            clothesList.add(kofta);
-            clothesList.add(pants);
-            clothesList.add(kros);
-        }
-
-        //дождь и тёпленько
-        if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
-            clothesList.add(zontik);
-            clothesList.add(kofta);
-            clothesList.add(pants);
-            clothesList.add(ked);
-        }
-
-        //тёпленько, но ветер
-        if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
-            clothesList.add(zontik);
-            clothesList.add(kofta);
-            clothesList.add(vetrovka);
-            clothesList.add(pants);
-            clothesList.add(ked);
-        }
-
-        //по осеннему
-        if (t <10 & t > -15)
-        {
-            clothesList.add(shapka);
-            clothesList.add(futbolka);
-            clothesList.add(kurtka);
-            clothesList.add(pants);
-            clothesList.add(ked);
-        }
-
-        //зима
-        if (t < -15 )
-        {
-            clothesList.add(shapka);
-            clothesList.add(rubashka);
-            clothesList.add(puhovik);
-            clothesList.add(pants);
-            clothesList.add(botinki);
-        }
-
-        list_of_clothes.setAdapter(myAdapter);
-    }
-
-    public void lookClothesF(double t, String r, double w){
-        clothesList.clear();
-
-        //жара
-        if (t > 20 & r.equals("Солнечно") & w < 7) {
-            clothesList.add(girlHat);
-            clothesList.add(platie);
-            clothesList.add(sandals);
-        }
-
-        //жарковато
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
-            clothesList.add(girlMaika);
-            clothesList.add(yubka);
-            clothesList.add(kros);
-        }
-
-        //жарковато, но ветер
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w > 7){
-            clothesList.add(girlFutbolka);
-            clothesList.add(vetrovka);
-            clothesList.add(pants);
-            clothesList.add(kros);
-        }
-
-        //дождь и жарковато
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
-            clothesList.add(zontik);
-            clothesList.add(girlFutbolka);
-            clothesList.add(pants);
-            clothesList.add(kros);
-        }
-
-
-        //тёпленько
-        if(t >= 10 & t <= 20 & !r.equals("Дождь") & w < 7){
-            clothesList.add(kofta);
-            clothesList.add(pants);
-            clothesList.add(kros);
-        }
-
-        //дождь и тёпленько
-        if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
-            clothesList.add(zontik);
-            clothesList.add(kofta);
-            clothesList.add(pants);
-            clothesList.add(ked);
-        }
-
-        //тёпленько, но ветер
-        if(t >= 10 & t <= 20 & r.equals("Дождь") & w > 7){
-            clothesList.add(zontik);
-            clothesList.add(kofta);
-            clothesList.add(vetrovka);
-            clothesList.add(pants);
-            clothesList.add(ked);
-        }
-
-        //по осеннему
-        if (t <10 & t > -15)
-        {
-            clothesList.add(shapka);
-            clothesList.add(girlFutbolka);
-            clothesList.add(kurtka);
-            clothesList.add(pants);
-            clothesList.add(ked);
-        }
-
-        //зима
-        if (t <-15 )
-        {
-            clothesList.add(shapka);
-            clothesList.add(rubashka);
-            clothesList.add(puhovik);
-            clothesList.add(pants);
-            clothesList.add(botinki);
-        }
-
-        list_of_clothes.setAdapter(myAdapter);
-    }
 
 
     @Override
@@ -255,10 +71,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
-                    lookClothesF(temp,rain,wind);
+                    new Clothes().showClothesF(temp,rain,wind,clothesList);
+                    list_of_clothes.setAdapter(myAdapter);
                 }
                 else{
-                    lookClothesM(temp,rain,wind);
+                    new Clothes().showClothesM(temp,rain,wind,clothesList);
+                    list_of_clothes.setAdapter(myAdapter);
                 }
 
             }
