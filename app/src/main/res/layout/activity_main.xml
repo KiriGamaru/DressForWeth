@@ -18,12 +18,12 @@
         android:text="     пол"
         android:textOff="Ж"
         android:textOn="М"
-        app:layout_constraintBottom_toBottomOf="@+id/edZametka"
+        app:layout_constraintBottom_toBottomOf="@+id/edCity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edZametka" />
+        app:layout_constraintTop_toTopOf="@+id/edCity" />
 
     <EditText
-        android:id="@+id/edZametka"
+        android:id="@+id/edCity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -31,10 +31,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Irkutsk"
         app:layout_constraintEnd_toStartOf="@+id/swGender"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btnSettings"
@@ -46,7 +46,7 @@
         android:text="Применить изменения"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edZametka" />
+        app:layout_constraintTop_toBottomOf="@+id/edCity" />
 
     <TextView
         android:id="@+id/tvWeather"
@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edZametka" />
+        app:layout_constraintTop_toBottomOf="@+id/edCity" />
 
     <ListView
         android:id="@+id/list_of_clothes"

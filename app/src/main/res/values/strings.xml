@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">DressForWeth</string>
+    <string name="app_name">DFW</string>
     <string name="no_user_input">Введите название города</string>
 </resources>

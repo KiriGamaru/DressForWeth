@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -30,49 +31,47 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
-//интерфэйс
+    //интерфэйс
     private TextView tvWeather;
     private EditText edCity;
     private Button btnSettings;
-
     private Switch swGender;
-
-    private ListView list_of_clothes;
-    private Button btnNotes;
-
-//погода
+    MyAdapter myAdapter;
+    //погода
     public double temp;
     public String rain;
     public double wind;
-
-
-    //create data
+    //список одежды
+    private ListView list_of_clothes;
     ArrayList<Clothes> clothesList = new ArrayList<>();
-    MyAdapter myAdapter;
 
-boolean test = false;
+    //хранение настроек
+    private SharedPreferences sharedPreferences;
+    private String city;
+    private boolean gender;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         tvWeather = findViewById(R.id.tvWeather);
-        edCity = findViewById(R.id.edZametka);
+        edCity = findViewById(R.id.edCity);
         btnSettings = findViewById(R.id.btnSettings);
+
+
+
 
         swGender = findViewById(R.id.swGender);
         swGender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
-                    test = true;
+                    gender = true;
                 }
                 else{
-                    test = false;
+                    gender = false;
                 }
 
             }
@@ -83,7 +82,7 @@ boolean test = false;
 
         myAdapter = new MyAdapter(this, R.layout.list_item, clothesList);
 
-        btnNotes = findViewById(R.id.btnNotes);
+
 
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
@@ -97,9 +96,6 @@ boolean test = false;
                     String url = "https://api.weatherapi.com/v1/current.json?key="+ key + "&q=" + city + "&lang=ru";
                     new GetURLData().execute(url);
                 }
-
-
-
             }
         });
     }
@@ -171,7 +167,7 @@ boolean test = false;
                          rain + "\n" +
                         "ветер " + wind + " м/с");
 
-                if ( test == true) {
+                if (gender) {
                     new Clothes().showClothesM(temp, rain, wind, clothesList);
                 }
                 else {
@@ -185,9 +181,26 @@ boolean test = false;
 
         }
 
-
-
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sharedPreferences = getSharedPreferences("city",MODE_PRIVATE);
+        city = sharedPreferences.getString("city", "");
+        edCity.setText(city.toString());
 
+        gender = sharedPreferences.getBoolean("gender", false);
+        swGender.setChecked(gender);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        city = edCity.getText().toString();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("city",city);
+        editor.putBoolean("gender",gender);
+        editor.apply();
+    }
 }
