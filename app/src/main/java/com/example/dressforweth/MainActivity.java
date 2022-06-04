@@ -47,14 +47,12 @@ public class MainActivity extends AppCompatActivity {
     public String rain;
     public double wind;
 
-//______________________________________________________________________________________________________
+
     //create data
     ArrayList<Clothes> clothesList = new ArrayList<>();
     MyAdapter myAdapter;
 
-
-//______________________________________________________________________________________________________
-
+boolean test = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +69,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
-                    new Clothes().showClothesF(temp,rain,wind,clothesList);
-                    list_of_clothes.setAdapter(myAdapter);
+                    test = true;
                 }
                 else{
-                    new Clothes().showClothesM(temp,rain,wind,clothesList);
-                    list_of_clothes.setAdapter(myAdapter);
+                    test = false;
                 }
 
             }
@@ -101,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     String url = "https://api.weatherapi.com/v1/current.json?key="+ key + "&q=" + city + "&lang=ru";
                     new GetURLData().execute(url);
                 }
+
+
 
             }
         });
@@ -173,7 +171,13 @@ public class MainActivity extends AppCompatActivity {
                          rain + "\n" +
                         "ветер " + wind + " м/с");
 
-
+                if ( test == true) {
+                    new Clothes().showClothesM(temp, rain, wind, clothesList);
+                }
+                else {
+                    new Clothes().showClothesF(temp, rain, wind, clothesList);
+                }
+                list_of_clothes.setAdapter(myAdapter);
 
             } catch (JSONException e) {
                 e.printStackTrace();

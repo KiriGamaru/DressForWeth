@@ -67,7 +67,7 @@ public class Clothes {
 
     public void showClothesM(double t, String r, double w, ArrayList<Clothes> clothesList){
         clothesList.clear();
-        //жара
+        //t>20
         if (t > 20 & r.equals("Солнечно") & w < 7) {
             clothesList.add(hat);
             clothesList.add(maika);
@@ -75,39 +75,47 @@ public class Clothes {
             clothesList.add(sandals);
         }
 
-        //жарковато
         if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
             clothesList.add(futbolka);
             clothesList.add(pants);
             clothesList.add(kros);
         }
 
-        //жарковато, но ветер
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w > 7){
+        if (t > 20 & !r.equals("Дождь") & w >= 7){
             clothesList.add(futbolka);
             clothesList.add(vetrovka);
             clothesList.add(pants);
             clothesList.add(kros);
         }
 
-
-        //дождь и жарковато
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
+        if (t > 20 & r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
             clothesList.add(rubashka);
             clothesList.add(pants);
-            clothesList.add(kros);
+            clothesList.add(ked);
         }
 
+        if (t > 20 & r.equals("Дождь") & w >= 7){
+            clothesList.add(vetrovka);
+            clothesList.add(rubashka);
+            clothesList.add(pants);
+            clothesList.add(ked);
+        }
 
-        //тёпленько
+        //t >= 10 & t <= 20
         if(t >= 10 & t <= 20 & !r.equals("Дождь") & w < 7){
             clothesList.add(kofta);
             clothesList.add(pants);
             clothesList.add(kros);
         }
 
-        //дождь и тёпленько
+        if(t >= 10 & t <= 20 & !r.equals("Дождь") & w >= 7){
+            clothesList.add(rubashka);
+            clothesList.add(vetrovka);
+            clothesList.add(pants);
+            clothesList.add(kros);
+        }
+
         if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
             clothesList.add(kofta);
@@ -115,17 +123,15 @@ public class Clothes {
             clothesList.add(ked);
         }
 
-        //тёпленько, но ветер
-        if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
-            clothesList.add(zontik);
+        if(t >= 10 & t <= 20 & r.equals("Дождь") & w >= 7){
             clothesList.add(kofta);
             clothesList.add(vetrovka);
             clothesList.add(pants);
             clothesList.add(ked);
         }
 
-        //по осеннему
-        if (t <10 & t > -15)
+        //t <10 & t > -15
+        if (t <10 & t > -15 & !r.equals("Дождь"))
         {
             clothesList.add(shapka);
             clothesList.add(futbolka);
@@ -134,8 +140,18 @@ public class Clothes {
             clothesList.add(ked);
         }
 
-        //зима
-        if (t < -15 )
+        if (t <10 & t > -15 & r.equals("Дождь") & w < 7)
+        {
+            clothesList.add(zontik);
+            clothesList.add(shapka);
+            clothesList.add(futbolka);
+            clothesList.add(kurtka);
+            clothesList.add(pants);
+            clothesList.add(ked);
+        }
+
+        //<= -15
+        if (t <= -15 )
         {
             clothesList.add(shapka);
             clothesList.add(rubashka);
@@ -149,45 +165,54 @@ public class Clothes {
     public static void showClothesF(double t, String r, double w,ArrayList<Clothes> clothesList){
         clothesList.clear();
 
-        //жара
+        //t>20
         if (t > 20 & r.equals("Солнечно") & w < 7) {
             clothesList.add(girlHat);
             clothesList.add(platie);
             clothesList.add(sandals);
         }
 
-        //жарковато
         if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
             clothesList.add(girlMaika);
             clothesList.add(yubka);
             clothesList.add(kros);
         }
 
-        //жарковато, но ветер
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w > 7){
+        if (t > 20 & !r.equals("Дождь") & w >= 7){
             clothesList.add(girlFutbolka);
             clothesList.add(vetrovka);
             clothesList.add(pants);
             clothesList.add(kros);
         }
 
-        //дождь и жарковато
-        if (t > 20 & !r.equals("Солнечно") & !r.equals("Дождь") & w < 7){
+        if (t > 20 & r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
-            clothesList.add(girlFutbolka);
+            clothesList.add(rubashka);
             clothesList.add(pants);
-            clothesList.add(kros);
+            clothesList.add(ked);
         }
 
+        if (t > 20 & r.equals("Дождь") & w >= 7){
+            clothesList.add(vetrovka);
+            clothesList.add(rubashka);
+            clothesList.add(pants);
+            clothesList.add(ked);
+        }
 
-        //тёпленько
+        //t >= 10 & t <= 20
         if(t >= 10 & t <= 20 & !r.equals("Дождь") & w < 7){
             clothesList.add(kofta);
             clothesList.add(pants);
             clothesList.add(kros);
         }
 
-        //дождь и тёпленько
+        if(t >= 10 & t <= 20 & !r.equals("Дождь") & w >= 7){
+            clothesList.add(rubashka);
+            clothesList.add(vetrovka);
+            clothesList.add(pants);
+            clothesList.add(kros);
+        }
+
         if(t >= 10 & t <= 20 & r.equals("Дождь") & w < 7){
             clothesList.add(zontik);
             clothesList.add(kofta);
@@ -195,27 +220,35 @@ public class Clothes {
             clothesList.add(ked);
         }
 
-        //тёпленько, но ветер
-        if(t >= 10 & t <= 20 & r.equals("Дождь") & w > 7){
-            clothesList.add(zontik);
+        if(t >= 10 & t <= 20 & r.equals("Дождь") & w >= 7){
             clothesList.add(kofta);
             clothesList.add(vetrovka);
             clothesList.add(pants);
             clothesList.add(ked);
         }
 
-        //по осеннему
-        if (t <10 & t > -15)
+        //t <10 & t > -15
+        if (t <10 & t > -15 & !r.equals("Дождь"))
         {
             clothesList.add(shapka);
-            clothesList.add(girlFutbolka);
+            clothesList.add(futbolka);
             clothesList.add(kurtka);
             clothesList.add(pants);
             clothesList.add(ked);
         }
 
-        //зима
-        if (t <-15 )
+        if (t <10 & t > -15 & r.equals("Дождь") & w < 7)
+        {
+            clothesList.add(zontik);
+            clothesList.add(shapka);
+            clothesList.add(futbolka);
+            clothesList.add(kurtka);
+            clothesList.add(pants);
+            clothesList.add(ked);
+        }
+
+        //<= -15
+        if (t <= -15 )
         {
             clothesList.add(shapka);
             clothesList.add(rubashka);
@@ -223,6 +256,7 @@ public class Clothes {
             clothesList.add(pants);
             clothesList.add(botinki);
         }
+
 
     }
 
