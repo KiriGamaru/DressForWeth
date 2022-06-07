@@ -61,7 +61,6 @@ public class ZametkiActivity extends AppCompatActivity {
 
 
     public void onClickBack(View view) {
-        Intent i = new Intent(ZametkiActivity.this, MainActivity.class);
-        startActivity(i);
+         finishActivity();
     }
 }
