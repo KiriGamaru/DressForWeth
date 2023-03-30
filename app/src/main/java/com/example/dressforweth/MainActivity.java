@@ -60,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
         edCity = findViewById(R.id.edCity);
         btnSettings = findViewById(R.id.btnSettings);
 
-
-
-
         swGender = findViewById(R.id.swGender);
         swGender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -92,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.no_user_input, Toast.LENGTH_LONG).show();
                 else{
                     String city = edCity.getText().toString();
-                    String key = "e6507b21733348adaf3105220220106";
+                    String key = "fbbbd87bd66b4e90b3d74733222208";
                     String url = "https://api.weatherapi.com/v1/current.json?key="+ key + "&q=" + city + "&lang=ru";
                     new GetURLData().execute(url);
                 }
