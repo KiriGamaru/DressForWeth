@@ -14,7 +14,6 @@ import com.example.dressforweth.DB.MyDBManager;
 public class ZametkiActivity extends AppCompatActivity {
     //база данных
     private MyDBManager myDBManager;
-    private Button btnBack;
     private Button btnSave;
     private EditText edZametka;
     private TextView tvZametki;
@@ -25,7 +24,6 @@ public class ZametkiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_zametki);
 
         myDBManager = new MyDBManager(this);
-        btnBack = findViewById(R.id.btnBack);
         btnSave = findViewById(R.id.btnSave);
         edZametka = findViewById(R.id.edZametka);
         tvZametki = findViewById(R.id.tvZametki);
@@ -56,11 +54,5 @@ public class ZametkiActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         myDBManager.closeDb();
-    }
-
-
-
-    public void onClickBack(View view) {
-         finishActivity();
     }
 }

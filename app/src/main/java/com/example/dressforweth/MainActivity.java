@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //интерфэйс
+    //интерфейс
     private TextView tvWeather;
     private EditText edCity;
     private Button btnSettings;
